@@ -9,5 +9,4 @@ public class UtaridLugatApplication {
     public static void main(String[] args) {
         SpringApplication.run(UtaridLugatApplication.class, args);
     }
-
 }
