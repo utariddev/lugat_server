@@ -18,17 +18,25 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-bootJar {
-    archiveClassifier.set('boot')
-}
+//jar {
+//    manifest {
+//        attributes(
+//                'Main-Class': 'org.utarid.lugat.UtaridLugatApplication'
+//        )
+//    }
+//}
 
-jar {
-    archiveClassifier.set('')
-}
+//bootJar {
+//    archiveClassifier.set('boot')
+//}
+//
+//jar {
+//    archiveClassifier.set('')
+//}
 
 tasks.named('test') {
     useJUnitPlatform()
