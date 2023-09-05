@@ -22,22 +22,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-//jar {
-//    manifest {
-//        attributes(
-//                'Main-Class': 'org.utarid.lugat.UtaridLugatApplication'
-//        )
-//    }
-//}
-
-//bootJar {
-//    archiveClassifier.set('boot')
-//}
-//
-//jar {
-//    archiveClassifier.set('')
-//}
-
 tasks.named('test') {
     useJUnitPlatform()
 }
