@@ -2,6 +2,8 @@ package org.utarid.lugat.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "words")
 public class WordEntity {
@@ -14,6 +16,8 @@ public class WordEntity {
     private String description;
     @Column(nullable = false)
     private boolean isActive;
+    @Column(nullable = false)
+    private Date date;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
@@ -56,5 +60,13 @@ public class WordEntity {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
