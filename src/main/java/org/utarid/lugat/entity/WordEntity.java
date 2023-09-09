@@ -12,12 +12,14 @@ public class WordEntity {
     private Long id;
     @Column(nullable = false)
     private String word;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String description;
     @Column(nullable = false)
     private boolean isActive;
     @Column(nullable = false)
     private Date date;
+    @Column(nullable = false)
+    private String titles;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
@@ -68,5 +70,13 @@ public class WordEntity {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getTitles() {
+        return titles;
+    }
+
+    public void setTitles(String titles) {
+        this.titles = titles;
     }
 }

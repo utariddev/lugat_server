@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import org.utarid.lugat.entity.WordEntity;
 import org.utarid.lugat.repository.WordRepository;
 
+import java.util.List;
+
 @Service
 public class LugatServiceImpl implements LugatService {
 
@@ -14,7 +16,17 @@ public class LugatServiceImpl implements LugatService {
     }
 
     @Override
-    public WordEntity getWord(String word) {
-        return wordRepository.findByWordAndIsActiveIsTrue(word);
+    public WordEntity getWord(String title) {
+        List<WordEntity> wordEntities = wordRepository.findByTitlesContainingIgnoreCaseAndIsActiveIsTrue(title);
+
+        for (WordEntity we : wordEntities) {
+            String[] titlesArray = we.getTitles().split(",");
+            for (String titles : titlesArray) {
+                if (titles.equalsIgnoreCase(title)) {
+                    return we;
+                }
+            }
+        }
+        return null;
     }
 }
